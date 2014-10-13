@@ -45,7 +45,7 @@ showSuggestions = (examples, input, adapter, name) ->
 
   for example in examples
     exampleCommand = example.replace /[-<].*$/, ''
-    continue if exampleCommand.match("^hubot *$") or not exampleCommand.match("^hubot")
+    continue if exampleCommand.match("^" + name + " *$") or not exampleCommand.match("^" + name + "")
     command = exampleCommand.split(" ")[1]
     continue unless command
     distance = levenshtein(inputCommand, command)
